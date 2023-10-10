@@ -10,7 +10,7 @@ const Orders = () => {
       <View style={{flex: 1}}>
         <FlatList
           data={orders}
-          renderItem={({item}) => {
+          renderItem={({item, index}) => {
             return (
               <View
                 style={{
@@ -41,7 +41,7 @@ const Orders = () => {
                         {item1.name}
                       </Text>
                       <Text style={{marginLeft: 20}}>
-                        {'Total:' + 'xyz'}
+                        {'Total:' + 'ABC'}
                       </Text>
                     </View>
                   );

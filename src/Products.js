@@ -9,7 +9,7 @@ export const products = {
             gender: 'male',
             image: require('./images/tshirt1.jpg'),
           },
-          {
+          { 
             name: 't-shirt 2',
             price: 349,
             gender: 'male',

@@ -21,7 +21,8 @@ const Main = () => {
   const [trouserList, setTrouserList] = useState([]);
   const [jeansList, setJeansList] = useState([]);
   const [slipperList, setSlipperList] = useState([]);
-  const [jacketLits, setJacketList] = useState([]);
+  const [JacketList, setJacketList] = useState([]);
+
   useEffect(() => {
     let categories = [];
     products.category.map(item => {
@@ -36,6 +37,22 @@ const Main = () => {
     setCategoryList(categories);
   }, []);
 
+  const Sorting = (products) => {
+    const products2=[]
+    products.category.map((item)=>{
+      products2.push(item)
+    })
+    products2.map((item)=>(
+      item.data.sort((a,b)=>a.price-b.price)
+    ))
+    setTshirtList(products2[0].data);
+    setJeansList(products2[1].data);
+    setShoesLits(products2.data);
+    setJacketList(products2[3].data);
+    setSlipperList(products2[4].data);
+    setTrouserList(products2[5].data);
+    
+  };
   return (
     <ScrollView style={{flex: 1, backgroundColor: '#fff'}}>
       <View style={{flex: 1}}>
@@ -50,6 +67,32 @@ const Main = () => {
             marginTop: 10,
           }}
         />
+        <View
+          style={{
+            width: '100%',
+            height: 50,
+            justifyContent: 'center',
+
+            alignItems: 'center',
+            borderBottomWidth: 0.2,
+            borderBottomColor: '#8e8e8e',
+            backgroundColor: '#fff',
+          }}>
+          <TouchableOpacity
+            style={{
+              marginRight: 20,
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 50,
+              height: 30,
+            }}
+            onPress={() => {
+              Sorting(products);
+            }}>
+            <Text style={{fontWeight: '600', fontSize: 20}}>Sort</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={{marginTop: 20}}>
           <FlatList
             horizontal
