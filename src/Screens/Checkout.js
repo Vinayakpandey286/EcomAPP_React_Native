@@ -143,7 +143,7 @@ import {
               RazorpayCheckout.open(options)
                 .then(data => {
                   // handle success
-                  alert(`Success: ${data.razorpay_payment_id}`);
+                //   alert(`Success: ${data.razorpay_payment_id}`);
                   dispatch(
                     addOrder({
                       items: cartData,
